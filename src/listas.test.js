@@ -1,0 +1,5 @@
+function getlistas(){
+
+}
+
+export {getlistas};
