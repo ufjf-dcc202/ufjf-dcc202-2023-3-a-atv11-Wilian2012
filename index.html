@@ -14,7 +14,7 @@
 
             <p id="entrada" contenteditable="true">Item</p>
            
-            <button id ="#adicionar">Adicionar</button>
+            <button id ="#adicionar" onclick="adcionarItem()">Adicionar</button>
             <button id="#limpar">Limpar Lista</button>
 
             <ol id="itens">
@@ -23,7 +23,21 @@
               <li>itens </li>  
             </ol>
         </section>
-        
+        <script>
+
+function adicionarItem() {
+                const entrada = document.getElementById('entrada');
+                const novoItem = entrada.textContent.trim();
+
+                if (novoItem !== '') {
+                    const lista = document.getElementById('itens');
+                    const novoLi = document.createElement('li');
+                    novoLi.textContent = novoItem;
+                    lista.appendChild(novoLi);
+                    entrada.textContent = '';
+                }
+            }
+        </script>
     </main>
 </body>
 </html>
