@@ -14,8 +14,8 @@
 
             <p id="entrada" contenteditable="true">Item</p>
            
-            <button id ="#adicionar" onclick="adcionarItem()">Adicionar</button>
-            <button id="#limpar">Limpar Lista</button>
+            <button id ="adicionar">Adicionar</button>
+            <button id="limpar">Limpar Lista</button>
 
             <ol id="itens">
               <li>itens </li> 
@@ -25,17 +25,30 @@
         </section>
         <script>
 
-function adicionarItem() {
-                const entrada = document.getElementById('entrada');
-                const novoItem = entrada.textContent.trim();
+                
+            const entrada = document.querySelector('#entrada');
+            const botaoAdicionar = document.querySelector("#adicionar");
+            const botaoLimpar = document.querySelector("#limpar");
+            const lista = document.querySelector("#itens");
 
-                if (novoItem !== '') {
-                    const lista = document.getElementById('itens');
-                    const novoLi = document.createElement('li');
-                    novoLi.textContent = novoItem;
-                    lista.appendChild(novoLi);
-                    entrada.textContent = '';
+            botaoAdicionar.addEventListener("click", adicionar);
+
+            botaoLimpar.addEventListener("click", limparLista);
+
+            function adicionar() {
+                const textoItem = entrada.value.trim();
+                if (textoItem !== '') {
+                    const novoli = document.createElement("li");
+                    novoli.textContent = textoItem;
+                    lista.appendChild(novoli);
+                    entrada.value = "";
+                    entrada.focus();
                 }
+            }
+
+            // Função para limpar a lista
+            function limparLista() {
+                lista.innerHTML = ""; // Remove todos os elementos filhos da lista
             }
         </script>
     </main>
