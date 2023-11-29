@@ -1,5 +1,0 @@
-function getlistas(){
-
-}
-
-export {getlistas};
